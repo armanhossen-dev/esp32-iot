@@ -5,4 +5,6 @@
 11-Aug-2026 -- day3 [Dinogame](https://github.com/armanhossen-dev/esp32/tree/main/game/dinogame)      
 12-Aug-2026 -- day4 [Desk_Buddy](https://github.com/armanhossen-dev/esp32/tree/main/Desktop)       
 
-[web simu](https://wokwi.com/)
+## ESP32 simulator Websites . . .
+- [1: wokwi](https://wokwi.com/)
+- [2: wokwi](https://velxio.dev/)
