@@ -108,7 +108,7 @@ void loop() {
       alarmStartMs = millis();
 
       if (timeinfo.tm_min == 0) {
-        // Hourly alarm: 3-second continuous tone
+        // Hourly alarm: 3-second high-intensity warble chime
         isHourlyAlarm = true;
         alarmBeepTarget = 0;
       } else {
@@ -116,7 +116,6 @@ void loop() {
         isHourlyAlarm = false;
         alarmBeepTarget = timeinfo.tm_min / 10;
       }
-      tone(BUZZER_PIN, 1000);
     }
   }
 
@@ -162,15 +161,20 @@ void handleAlarmBeeper() {
   unsigned long elapsed = millis() - alarmStartMs;
 
   if (isHourlyAlarm) {
-    // Top of the hour: 3 seconds continuous buzz
+    // Top of the hour: 3 seconds loud alternating dual-tone siren
     if (elapsed < 3000) {
-      tone(BUZZER_PIN, 1000);
+      // Swaps frequency every 100ms between 2700Hz and 3500Hz for maximum piezo volume
+      if ((elapsed / 100) % 2 == 0) {
+        tone(BUZZER_PIN, 2700);
+      } else {
+        tone(BUZZER_PIN, 3500);
+      }
     } else {
       noTone(BUZZER_PIN);
       alarmActive = false;
     }
   } else {
-    // 10-minute intervals: Pulsed beeps
+    // 10-minute intervals: Pulsed beeps (2700 Hz for high visibility)
     unsigned long cycle = ALARM_BEEP_ON_MS + ALARM_BEEP_OFF_MS;
     unsigned long cyclePos = elapsed % cycle;
     int currentBeep = elapsed / cycle;
@@ -182,7 +186,9 @@ void handleAlarmBeeper() {
     }
 
     if (cyclePos < ALARM_BEEP_ON_MS) {
-      tone(BUZZER_PIN, 1000);
+      tone(BUZZER_PIN, 2700);
+      // tone(BUZZER_PIN, 1000); if i want low sound, 
+      /* Piezo Resonant Peak (2700 Hz – 3500 Hz): Small piezo buzzers reach their highest decibel output in the 2.5 kHz to 3.5 kHz frequency range, whereas 1000 Hz is relatively quiet. */
     } else {
       noTone(BUZZER_PIN);
     }
