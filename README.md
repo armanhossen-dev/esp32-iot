@@ -8,7 +8,7 @@
 10-Aug-2026 -- day2 [ESP32 Wi-Fi Real-Time OLED Clock](https://github.com/armanhossen-dev/esp32/tree/main/OLED_ESP32/Real-TimeClock)        
 11-Aug-2026 -- day3 [Dinogame](https://github.com/armanhossen-dev/esp32/tree/main/game/dinogame)      
 12-Aug-2026 -- day4 [Desk_Buddy](https://github.com/armanhossen-dev/esp32/tree/main/Desktop)       
-12-Sep-2026 -- Day 5[ESP32 Clock Buzzer Alarm Logic Upgrade]()
+12-Sep-2026 -- Day5[ESP32 Clock Buzzer Alarm Logic Upgrade](https://github.com/armanhossen-dev/esp32-iot/blob/main/OLED_ESP32/Real-TimeClock/esp32_clock_alarm2.ino)      
 
 ---
 
