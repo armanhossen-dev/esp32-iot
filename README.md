@@ -12,7 +12,8 @@
 
 ---
 
-# Troubleshooting Note: Missing ESP32 Serial Port (macOS / CH340)       
+# Troubleshooting Note:
+### Missing ESP32 Serial Port (macOS / CH340)       
 If `/dev/cu.usbserial-*` or `/dev/cu.wchusbserial-*` fails to appear under **Tools > Port**:
 
 1. **Unplug** the ESP32 from USB.
